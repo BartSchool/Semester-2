@@ -20,13 +20,21 @@ public class Carnivore : IAnimal
 
     public bool CanJoinCart(Cart cart)
     {
-        if (cart.GetSpace() > size)
-        {
-            foreach (IAnimal animal in cart.AnimalList)
-                if (CanEat(animal))
-                    return false;
-            return true;
-        }
+        if (cart.GetSpace() >= size)
+            if (!CanBeEatenInCart(cart))
+            {
+                foreach (IAnimal animal in cart.AnimalList)
+                    if (CanEat(animal))
+                        return false;
+                return true;
+            }
+        return false;
+    }
+    public bool CanBeEatenInCart(Cart cart)
+    {
+        foreach (Carnivore carnivore in cart.AnimalList.OfType<Carnivore>())
+            if (carnivore.size >= size)
+                return true;
         return false;
     }
 }

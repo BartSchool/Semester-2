@@ -13,8 +13,17 @@ public class Herbivore : IAnimal
 
     public bool CanJoinCart(Cart cart)
     {
-        if (cart.GetSpace() > size)
-            return true;
+        if (cart.GetSpace() >= size)
+            if (!CanBeEatenInCart(cart))
+                return true;
+        return false;
+    }
+
+    public bool CanBeEatenInCart(Cart cart)
+    {
+        foreach (Carnivore carnivore in cart.AnimalList.OfType<Carnivore>())
+            if (carnivore.size >= size)
+                return true;
         return false;
     }
 }

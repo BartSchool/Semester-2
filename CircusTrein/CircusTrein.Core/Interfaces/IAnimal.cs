@@ -7,4 +7,5 @@ public interface IAnimal
     int size { get; }
 
     bool CanJoinCart(Cart cart);
+    public bool CanBeEatenInCart(Cart cart);
 }

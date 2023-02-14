@@ -26,4 +26,13 @@ public class Cart : IAnimalCollection
         if (animal.CanJoinCart(this))
             AnimalList.Add(animal);
     }
+
+    public int GetCarnivoreSize()
+    {
+        int result = 0;
+        foreach (Carnivore carnivore in AnimalList.OfType<Carnivore>())
+            if (carnivore.size > result)
+                result = carnivore.size;
+        return result;
+    }
 }
