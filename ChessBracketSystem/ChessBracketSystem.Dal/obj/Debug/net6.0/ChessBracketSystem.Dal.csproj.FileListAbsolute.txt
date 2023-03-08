@@ -1,0 +1,15 @@
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\bin\Debug\net6.0\ChessBracketSystem.Dal.deps.json
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\bin\Debug\net6.0\ChessBracketSystem.Dal.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\bin\Debug\net6.0\ChessBracketSystem.Dal.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\bin\Debug\net6.0\ChessBracketSystem.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\bin\Debug\net6.0\ChessBracketSystem.Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.csproj.AssemblyReference.cache
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.AssemblyInfoInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.AssemblyInfo.cs
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.csproj.CoreCompileInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.csproj.CopyComplete
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\refint\ChessBracketSystem.Dal.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ChessBracketSystem.Dal.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Dal\obj\Debug\net6.0\ref\ChessBracketSystem.Dal.dll

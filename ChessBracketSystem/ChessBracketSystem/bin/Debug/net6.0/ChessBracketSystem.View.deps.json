@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ChessBracketSystem.View/1.0.0": {
+        "dependencies": {
+          "ChessBracketSystem.Core": "1.0.0",
+          "ChessBracketSystem.Dal": "1.0.0"
+        },
+        "runtime": {
+          "ChessBracketSystem.View.dll": {}
+        }
+      },
+      "ChessBracketSystem.Core/1.0.0": {
+        "runtime": {
+          "ChessBracketSystem.Core.dll": {}
+        }
+      },
+      "ChessBracketSystem.Dal/1.0.0": {
+        "dependencies": {
+          "ChessBracketSystem.Core": "1.0.0"
+        },
+        "runtime": {
+          "ChessBracketSystem.Dal.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChessBracketSystem.View/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChessBracketSystem.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChessBracketSystem.Dal/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

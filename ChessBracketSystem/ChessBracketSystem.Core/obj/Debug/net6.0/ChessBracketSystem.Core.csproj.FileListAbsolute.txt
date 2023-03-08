@@ -1,0 +1,12 @@
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\bin\Debug\net6.0\ChessBracketSystem.Core.deps.json
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\bin\Debug\net6.0\ChessBracketSystem.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\bin\Debug\net6.0\ChessBracketSystem.Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.csproj.AssemblyReference.cache
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.AssemblyInfoInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.AssemblyInfo.cs
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.csproj.CoreCompileInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\refint\ChessBracketSystem.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ChessBracketSystem.Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\ChessBracketSystem\ChessBracketSystem.Core\obj\Debug\net6.0\ref\ChessBracketSystem.Core.dll
