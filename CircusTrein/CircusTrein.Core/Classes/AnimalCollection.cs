@@ -11,14 +11,18 @@ public class AnimalCollection : IAnimalCollection
         AnimalList = new();
     }
 
-    public void AddAnimal(IAnimal animal)
+    public bool TryAddAnimal(IAnimal animal)
     {
         AnimalList.Add(animal);
+        return true;
     }
 
-    public void AddAnimals(List<IAnimal> animals)
+    public bool TryAddAnimal(List<IAnimal> animals)
     {
-        AnimalList.AddRange(animals);
+        foreach (IAnimal animal in animals)
+            if (!TryAddAnimal(animal))
+                return false;
+        return true;
     }
 
     public int GetSmallestSize()

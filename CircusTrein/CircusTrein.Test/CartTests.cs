@@ -21,7 +21,7 @@ public class CartTests
         Cart cart = new Cart();
         IAnimal animal = AG.GetCarnivore(3);
 
-        cart.AddAnimal(animal);
+        cart.TryAddAnimal(animal);
 
         Assert.NotEmpty(cart.AnimalList);
     }
@@ -31,8 +31,8 @@ public class CartTests
     {
         Cart cart = new Cart();
         IAnimal animal = AG.GetHerbivore(5);
-        cart.AddAnimal(animal);
-        cart.AddAnimal(animal);
+        cart.TryAddAnimal(animal);
+        cart.TryAddAnimal(animal);
 
         Assert.Equal(0, cart.GetSpace());
     }

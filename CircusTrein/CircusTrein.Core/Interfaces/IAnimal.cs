@@ -6,6 +6,6 @@ public interface IAnimal
 {
     int size { get; }
 
-    bool CanJoinCart(Cart cart);
-    public bool CanBeEatenInCart(Cart cart);
+    bool CanJoinCollection(IAnimalCollection animalCollection);
+    public bool CanBeEatenInCollection(IAnimalCollection animalCollection);
 }

@@ -21,18 +21,28 @@ public class Cart : IAnimalCollection
         return space;
     }
 
-    public void AddAnimal(IAnimal animal)
+    public bool CanAddAnimal(IAnimal animal)
     {
-        if (animal.CanJoinCart(this))
-            AnimalList.Add(animal);
+        if (GetSpace() < animal.size)
+            return false;
+        return true;
     }
 
-    public int GetCarnivoreSize()
+    public bool TryAddAnimal(IAnimal animal)
     {
-        int result = 0;
-        foreach (Carnivore carnivore in AnimalList.OfType<Carnivore>())
-            if (carnivore.size > result)
-                result = carnivore.size;
-        return result;
+        if (CanAddAnimal(animal))
+            if (animal.CanJoinCollection(this))
+                {
+                    AnimalList.Add(animal);
+                    return true;
+                }
+        return false;
+    }
+    public bool TryAddAnimal(List<IAnimal> animals)
+    {
+        foreach (IAnimal animal in animals)
+            if (!TryAddAnimal(animal))
+                return false;
+        return true;
     }
 }

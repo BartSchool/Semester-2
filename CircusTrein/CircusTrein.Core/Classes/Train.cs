@@ -19,7 +19,7 @@ public class Train
 
     public void DistributeAnimals()
     {
-        if (ShouldIUseBig())
+        if (ShouldSortByBig())
             DistributeUsingBig();
         else
             DistributeUsingMedium();
@@ -30,17 +30,14 @@ public class Train
         AnimalCollection.sortAnimalListBig();
         while (AnimalCollection.AnimalList.Count > 0)
         {
-            CheckLastCart(cartList, AnimalCollection);
+            TryAddNewCart(cartList, AnimalCollection);
             Cart lastCart = cartList.Last();
             int i = 0;
             while (i < AnimalCollection.AnimalList.Count)
             {
                 IAnimal animal = AnimalCollection.AnimalList[i];
-                if (animal.CanJoinCart(lastCart))
-                {
-                    lastCart.AddAnimal(animal);
+                if (lastCart.TryAddAnimal(animal))
                     AnimalCollection.AnimalList.Remove(animal);
-                }
                 else
                     i++;
             }
@@ -52,43 +49,37 @@ public class Train
         AnimalCollection.sortAnimalListMedium();
         while (AnimalCollection.AnimalList.Count > 0)
         {
-            CheckLastCart(cartList, AnimalCollection);
+            TryAddNewCart(cartList, AnimalCollection);
             Cart lastCart = cartList.Last();
             int i = 0;
             while (i < AnimalCollection.AnimalList.Count)
             {
                 IAnimal animal = AnimalCollection.AnimalList[i];
-                if (animal.CanJoinCart(lastCart))
-                {
-                    lastCart.AddAnimal(animal);
+                if (lastCart.TryAddAnimal(animal))
                     AnimalCollection.AnimalList.Remove(animal);
-                }
                 else
                     i++;
             }
         }
     }
 
-    private int CartsUsingBig()
+    private int AmountOfCartsSortingByBig()
     {
         AnimalCollection.sortAnimalListBig();
         AnimalCollection tempCollection = new();
-        tempCollection.AddAnimals(AnimalCollection.AnimalList);
+        tempCollection.TryAddAnimal(AnimalCollection.AnimalList);
         List<Cart> carts = new List<Cart>();
 
         while (tempCollection.AnimalList.Count > 0)
         {
-            CheckLastCart(carts, tempCollection);
+            TryAddNewCart(carts, tempCollection);
             Cart lastCart = carts.Last();
             int i = 0;
             while (i < tempCollection.AnimalList.Count)
             {
                 IAnimal animal = tempCollection.AnimalList[i];
-                if (animal.CanJoinCart(lastCart))
-                {
-                    lastCart.AddAnimal(animal);
+                if (lastCart.TryAddAnimal(animal))
                     tempCollection.AnimalList.Remove(animal);
-                }
                 else
                     i++;
             }
@@ -97,26 +88,23 @@ public class Train
         return carts.Count;
     }
 
-    private int CartsUsingMedium()
+    private int AmountOfCartsSortingByMedium()
     {
         AnimalCollection.sortAnimalListMedium();
         AnimalCollection tempCollection = new();
-        tempCollection.AddAnimals(AnimalCollection.AnimalList);
+        tempCollection.TryAddAnimal(AnimalCollection.AnimalList);
         List<Cart> carts = new List<Cart>();
 
         while (tempCollection.AnimalList.Count > 0)
         {
-            CheckLastCart(carts, tempCollection);
+            TryAddNewCart(carts, tempCollection);
             Cart lastCart = carts.Last();
             int i = 0;
             while (i < tempCollection.AnimalList.Count)
             {
                 IAnimal animal = tempCollection.AnimalList[i];
-                if (animal.CanJoinCart(lastCart))
-                {
-                    lastCart.AddAnimal(animal);
+                if (lastCart.TryAddAnimal(animal))
                     tempCollection.AnimalList.Remove(animal);
-                }
                 else
                     i++;
             }
@@ -125,25 +113,31 @@ public class Train
         return carts.Count;
     }
 
-    private void CheckLastCart(List<Cart> carts, AnimalCollection animalCollection)
+    private void TryAddNewCart(List<Cart> carts, AnimalCollection animalCollection)
     {
         if (carts.Count == 0)
             carts.Add(new());
         Cart lastCart = carts.Last();
         if (lastCart.GetSpace() < animalCollection.GetSmallestSize())
             carts.Add(new());
-        else if (lastCart.GetCarnivoreSize() >= animalCollection.GetBiggestHerbivoreSize())
+        else if (GetCarnivoreSize(lastCart) >= animalCollection.GetBiggestHerbivoreSize())
             carts.Add(new());
         else if (lastCart.GetSpace() < animalCollection.GetBiggestSize())
             carts.Add(new());
     }
 
-    private bool ShouldIUseBig()
+    public int GetCarnivoreSize(IAnimalCollection collection)
     {
-        int big = CartsUsingBig();
-        int medium = CartsUsingMedium();
+        int result = 0;
+        foreach (ICarnivore carnivore in collection.AnimalList.OfType<ICarnivore>())
+            if (carnivore.size > result)
+                result = carnivore.size;
+        return result;
+    }
 
-        if (big > medium)
+    private bool ShouldSortByBig()
+    {
+        if (AmountOfCartsSortingByBig() > AmountOfCartsSortingByMedium())
             return false;
         return true;
     }

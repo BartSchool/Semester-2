@@ -2,11 +2,11 @@
 
 namespace CircusTrein.Core.Classes;
 
-public class Carnivore : ICarnivore
+public class Omnivore : ICarnivore, IHerbivore
 {
     public int size { get; private set; }
 
-    public Carnivore(int size)
+    public Omnivore(int size)
     {
         this.size = size;
     }

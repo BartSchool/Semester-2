@@ -6,5 +6,6 @@ public interface IAnimalCollection
 {
     List<IAnimal> AnimalList { get; }
 
-    void AddAnimal(IAnimal animal);
+    bool TryAddAnimal(IAnimal animal);
+    bool TryAddAnimal(List<IAnimal> animals);
 }

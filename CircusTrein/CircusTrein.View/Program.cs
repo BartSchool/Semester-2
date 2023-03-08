@@ -5,7 +5,7 @@ Console.OutputEncoding = Encoding.Unicode;
 Train train = new();
 
 Greet();
-train.AnimalCollection.AddAnimals(AskAnimals());
+train.AnimalCollection.TryAddAnimal(AskAnimals());
 ShowSelectedAnimals();
 CalculateBestDistribution();
 

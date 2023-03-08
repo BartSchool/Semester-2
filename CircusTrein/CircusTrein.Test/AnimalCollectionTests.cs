@@ -10,7 +10,7 @@ public class AnimalCollectionTests
     public void CanSortAnimalList()
     {
         AnimalCollection collection = new AnimalCollection();
-        collection.AddAnimals(AG.getAnimals(1, 1, 1, 1, 1, 1));
+        collection.TryAddAnimal(AG.getAnimals(1, 1, 1, 1, 1, 1));
 
         collection.sortAnimalListMedium();
 

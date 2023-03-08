@@ -2,7 +2,7 @@
 
 namespace CircusTrein.Core.Classes;
 
-public class Herbivore : IAnimal
+public class Herbivore : IHerbivore
 {
     public int size { get; private set; }
 
@@ -11,17 +11,16 @@ public class Herbivore : IAnimal
         this.size = size;
     }
 
-    public bool CanJoinCart(Cart cart)
+    public bool CanJoinCollection(IAnimalCollection animalCollection)
     {
-        if (cart.GetSpace() >= size)
-            if (!CanBeEatenInCart(cart))
-                return true;
+        if (!CanBeEatenInCollection(animalCollection))
+            return true;
         return false;
     }
 
-    public bool CanBeEatenInCart(Cart cart)
+    public bool CanBeEatenInCollection(IAnimalCollection animalCollection)
     {
-        foreach (Carnivore carnivore in cart.AnimalList.OfType<Carnivore>())
+        foreach (ICarnivore carnivore in animalCollection.AnimalList.OfType<ICarnivore>())
             if (carnivore.size >= size)
                 return true;
         return false;
