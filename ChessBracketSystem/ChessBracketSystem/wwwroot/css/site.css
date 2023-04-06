@@ -16,3 +16,22 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.mycontainer {
+    display: flex;
+    margin-inline: 2px;
+}
+
+.containerH {
+    margin: 2px;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    display: flex;
+    border-radius: 5px;
+    border: none;
+    justify-content: center;
+}

@@ -2,8 +2,6 @@
 
 public interface IPlayer
 {
-    string Name { get; }
-    int Rating { get; }
-
-    bool CanJoin(Tournement tournament);
+    public string Name { get; }
+    public int Rating { get; }
 }

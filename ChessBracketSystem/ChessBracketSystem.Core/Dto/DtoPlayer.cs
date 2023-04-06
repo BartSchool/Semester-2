@@ -1,4 +1,6 @@
-﻿namespace ChessBracketSystem.Core.Dto;
+﻿using ChessBracketSystem.Core.Interface;
+
+namespace ChessBracketSystem.Core.Dto;
 
 public class DtoPlayer
 {
@@ -11,7 +13,7 @@ public class DtoPlayer
         Rating = rating;
     }
 
-    public DtoPlayer(Player player)
+    public DtoPlayer(IPlayer player)
     {
         Name = player.Name;
         Rating = player.Rating;

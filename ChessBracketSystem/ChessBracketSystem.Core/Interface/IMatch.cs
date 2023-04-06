@@ -2,11 +2,9 @@
 
 public interface IMatch
 {
-    DateTime StartTime { get; }
-    IPlayerCollection Players { get; }
-    string Result { get; }
-    bool Finnished { get; }
-
-    void Edit(DateTime startTime);
-    void UpdateResult(string Result);
+    public int ID { get; }
+    public DateTime StartTime { get; }
+    public IPlayerCollection Players { get; }
+    public string Result { get; }
+    public bool Finished { get; }
 }

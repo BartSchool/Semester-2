@@ -3,17 +3,17 @@ using ChessBracketSystem.Core.Interface;
 
 namespace ChessBracketSystem.Core;
 
-public class Tournement : ITournement
+public class Tournement
 {
     public string Name { get; private set; }
     public int MaxPlayers { get; private set; }
     public IPlayerCollection Players { get; private set; }
     public IPlayerCollection InvitedPlayers { get; private set; }
-    public IBracket Bracket { get; private set; }
+    public Bracket Bracket { get; private set; }
     public DateTime StartTime { get; private set; }
     public bool IsOpen { get; private set; }
 
-    public Tournement(string name, int maxPlayers, IPlayerCollection players, IPlayercollection invitedPlayers, IBracket bracket, DateTime startTime, bool isOpen)
+    public Tournement(string name, int maxPlayers, IPlayerCollection players, IPlayerCollection invitedPlayers, Bracket bracket, DateTime startTime, bool isOpen)
     {
         Name = name;
         MaxPlayers = maxPlayers;
@@ -28,9 +28,9 @@ public class Tournement : ITournement
     {
         Name=dto.Name;
         MaxPlayers = dto.MaxPlayers;
-        Players = dto.Players;
-        InvitedPlayers = dto.InvitedPlayers;
-        Bracket=dto.Bracket;
+        Players = new PlayerCollection(dto.Players);
+        InvitedPlayers = new PlayerCollection(dto.InvitedPlayers);
+        Bracket= new(dto.Bracket);
         StartTime = dto.StartTime;
         IsOpen = dto.IsOpen;
     }

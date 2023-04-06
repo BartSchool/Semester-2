@@ -31,11 +31,11 @@ public class Cart : IAnimalCollection
     public bool TryAddAnimal(IAnimal animal)
     {
         if (CanAddAnimal(animal))
-            if (animal.CanJoinCollection(this))
-                {
-                    AnimalList.Add(animal);
-                    return true;
-                }
+            if (animal.CanJoinCollection(this.AnimalList))
+            {
+                AnimalList.Add(animal);
+                return true;
+            }
         return false;
     }
     public bool TryAddAnimal(List<IAnimal> animals)

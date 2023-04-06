@@ -1,6 +1,5 @@
 ﻿using ChessBracketSystem.Core.Dto;
 using ChessBracketSystem.Core.Interface;
-using System.Numerics;
 
 namespace ChessBracketSystem.Core;
 
@@ -13,9 +12,17 @@ public class PlayerCollection : IPlayerCollection
         List = list;
     }
 
+    public PlayerCollection()
+    {
+        List = new List<IPlayer>();
+    }
+
     public PlayerCollection(DtoPlayerCollection dto)
     {
-        List = dto.List;
+        List<IPlayer> temp = new();
+        foreach (DtoPlayer dtoplayer in dto.List)
+            temp.Add(new Player(dtoplayer));
+        List = temp;
     }
 
     public void Add(IPlayer player)

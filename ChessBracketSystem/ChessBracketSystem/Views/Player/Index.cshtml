@@ -1,0 +1,21 @@
+﻿@using ChessBracketSystem.View.Models;
+@using ChessBracketSystem.Core.Interface;
+@using ChessBracketSystem.Core;
+
+@model PlayerModel;
+
+<div>
+    <a class="button" asp-controller="Player" asp-action="AddPlayer">Add</a>
+    @foreach (IPlayer player in Model.Players.List){
+        <div class="containerH">
+            <div class="mycontainer">
+                @player.Name - @player.Rating
+            </div>
+            <form class="mycontainer" method="post" asp-controller="Player" asp-action="RemovePlayer">
+                <input asp-for="RemoveName" type="text" value="@player.Name" style="display: none"/>
+                <input asp-for="RemoveRating" type="number" value="@player.Rating" style="display: none" />
+                <input class="button" type="submit" value="-">
+            </form>
+        </div>
+    }
+</div>

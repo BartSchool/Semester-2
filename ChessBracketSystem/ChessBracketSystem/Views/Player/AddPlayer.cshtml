@@ -1,0 +1,9 @@
+﻿@using ChessBracketSystem.View.Models
+
+@model AddPlayerModel
+
+<form asp-action="AddPlayer">
+    <input asp-for="name" type="text" placeholder="name" />
+    <input asp-for="rating" type="number" />
+    <input type="submit"/>
+</form>

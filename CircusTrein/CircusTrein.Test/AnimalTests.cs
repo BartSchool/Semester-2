@@ -25,7 +25,7 @@ public class AnimalTests
         IAnimal animal = AG.GetCarnivore(3);
         Cart cart = new Cart();
 
-        bool result = animal.CanJoinCollection(cart);
+        bool result = animal.CanJoinCollection(cart.AnimalList);
 
         Assert.True(result);
     }
@@ -36,7 +36,7 @@ public class AnimalTests
         Cart cart = new Cart();
         cart.TryAddAnimal(AG.GetHerbivore(3));
 
-        bool result = animal.CanJoinCollection(cart);
+        bool result = animal.CanJoinCollection(cart.AnimalList);
 
         Assert.False(result);
     }
@@ -45,9 +45,9 @@ public class AnimalTests
     {
         IAnimal animal = AG.GetCarnivore(1);
         Cart cart = new Cart();
-        bool result1 = animal.CanBeEatenInCollection(cart);
+        bool result1 = animal.CanBeEatenInCollection(cart.AnimalList);
         cart.TryAddAnimal(AG.GetCarnivore(5));
-        bool result2 = animal.CanBeEatenInCollection(cart);
+        bool result2 = animal.CanBeEatenInCollection(cart.AnimalList);
 
         Assert.False(result1);
         Assert.True(result2);
