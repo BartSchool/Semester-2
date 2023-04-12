@@ -1,10 +1,11 @@
-﻿using ChessBracketSystem.Core.Interface;
+﻿using ChessBracketSystem.Core.Dto;
 
 namespace ChessBracketSystem.View.Models;
 
 public class PlayerModel
 {
-    public IPlayerCollection Players { get; set; }
+    public List<DtoPlayer> Players { get; set; }
+	public int RemoveID { get; set; }
 	public string RemoveName { get; set; }
 	public int RemoveRating { get; set; }
 	public PlayerModel()

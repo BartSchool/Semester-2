@@ -5,6 +5,7 @@ namespace ChessBracketSystem.Core;
 
 public class MatchCollection : IMatchCollection
 {
+    public int ID { get; private set; }
     public IReadOnlyList<IMatch> List { get; private set; }
 
     public MatchCollection()
@@ -12,13 +13,15 @@ public class MatchCollection : IMatchCollection
         List = new List<IMatch>();
     }
 
-    public MatchCollection(List<IMatch> list)
+    public MatchCollection(int iD, List<IMatch> list)
     {
+        ID = iD;
         List = list;
     }
 
     public MatchCollection(DtoMatchCollection dto)
     {
+        ID = dto.ID;
         List<IMatch> temp = new List<IMatch>();
         foreach (DtoMatch dtomatch in dto.List)
             temp.Add(new Match(dtomatch));

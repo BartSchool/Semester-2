@@ -1,0 +1,18 @@
+﻿@using ChessBracketSystem.Core.Dto
+@using ChessBracketSystem.View.Models;
+@using ChessBracketSystem.Core.Interface;
+@using ChessBracketSystem.Core;
+
+@model TournementModel
+
+<div>
+    <a class="button" asp-controller="Player" asp-action="AddPlayer">Add</a>
+    @foreach (Tournement tournement in Model.tournements)
+    {
+        <div class="containerH">
+            <div class="mycontainer">
+                @tournement.StartTime | @tournement.Name | @tournement.IsOpen | @tournement.GetAvailableSpaces()
+            </div>
+        </div>
+    }
+</div>

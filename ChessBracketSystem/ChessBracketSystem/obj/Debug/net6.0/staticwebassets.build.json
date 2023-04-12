@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AgNDWwIgRIDpbyjwOsCjlWYphWVW6lyEdTqVnZ6JHkQ=",
+  "Hash": "fyINU+aw10LmpvO+CATLxC+WzNIrMr019SyEcoXbzVA=",
   "Source": "ChessBracketSystem.View",
   "BasePath": "_content/ChessBracketSystem.View",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\ChessBracketSystem\\ChessBracketSystem\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ChessBracketSystem.View.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\ChessBracketSystem\\ChessBracketSystem\\wwwroot\\css\\HomePage.css",
+      "SourceId": "ChessBracketSystem.View",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\ChessBracketSystem\\ChessBracketSystem\\wwwroot\\",
+      "BasePath": "_content/ChessBracketSystem.View",
+      "RelativePath": "css/HomePage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomePage.css"
     },
     {
       "Identity": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\ChessBracketSystem\\ChessBracketSystem\\wwwroot\\css\\site.css",

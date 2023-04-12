@@ -4,6 +4,7 @@ namespace ChessBracketSystem.Core.Dto;
 
 public class DtoTournement
 {
+    public int ID { get; private set; }
     public string Name { get; private set; }
     public int MaxPlayers { get; private set; }
     public DtoPlayerCollection Players { get; private set; }
@@ -12,8 +13,9 @@ public class DtoTournement
     public DateTime StartTime { get; private set; }
     public bool IsOpen { get; private set; }
 
-    public DtoTournement(string name, int maxPlayers, DtoPlayerCollection players, DtoPlayerCollection invitedPlayers, DtoBracket bracket, DateTime startTime, bool isOpen)
+    public DtoTournement(int iD, string name, int maxPlayers, DtoPlayerCollection players, DtoPlayerCollection invitedPlayers, DtoBracket bracket, DateTime startTime, bool isOpen)
     {
+        ID = iD;
         Name = name;
         MaxPlayers = maxPlayers;
         Players = players;
@@ -25,6 +27,7 @@ public class DtoTournement
 
     public DtoTournement(Tournement tournement)
     {
+        ID = tournement.ID;
         Name = tournement.Name;
         MaxPlayers = tournement.MaxPlayers;
         Players = new(tournement.Players);

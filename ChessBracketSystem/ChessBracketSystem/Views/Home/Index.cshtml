@@ -1,8 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
+<link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="window">
+    <div class="background">
+        <div class="backgroundContainer">
+            <div class="navigation">
+                <a class="selected" asp-controller="Home" asp-action="Index">Home</a>
+                <a asp-controller="Player" asp-action="Index">Players</a>
+                <a asp-controller="Tournament" asp-action="Index">Tournaments</a>
+            </div>
+            <div class="text">
+                Host your next competitive chess tournament with ease and connect with a community of passionate players!
+            </div>
+            <div class="joinnow">
+                Join now
+            </div>
+        </div>
+
+        <div class="backgroundContainer">
+            <div>
+                image
+            <div>
+        </div>
+    </div>
 </div>

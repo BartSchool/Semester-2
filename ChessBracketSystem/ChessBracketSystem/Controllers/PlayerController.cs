@@ -12,7 +12,7 @@ namespace ChessBracketSystem.View.Controllers
         public IActionResult Index()
         {
             PlayerModel model = new PlayerModel();
-            model.Players = new PlayerCollectionDal();
+            model.Players = PlayerDal.GetPlayers();
             return View(model);
         }
 
@@ -26,7 +26,7 @@ namespace ChessBracketSystem.View.Controllers
         [HttpPost]
         public IActionResult AddPlayer(AddPlayerModel model)
         {
-            Player player = new(model.name, model.rating);
+            Player player = new(model.ID, model.name, model.rating);
             PlayerDal.Add(player);
             return RedirectToAction("AddPlayer");
         }
@@ -34,7 +34,7 @@ namespace ChessBracketSystem.View.Controllers
         [HttpPost]
         public IActionResult RemovePlayer(PlayerModel model)
         {
-            Player player = new(model.RemoveName, model.RemoveRating);
+            Player player = new(model.RemoveID, model.RemoveName, model.RemoveRating);
             PlayerDal.Remove(player);
             return RedirectToAction("Index");
         }

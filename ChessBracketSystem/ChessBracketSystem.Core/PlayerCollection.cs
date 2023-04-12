@@ -5,6 +5,7 @@ namespace ChessBracketSystem.Core;
 
 public class PlayerCollection : IPlayerCollection
 {
+    public int ID { get; private set; }
     public IReadOnlyList<IPlayer> List { get; private set; }
 
     public PlayerCollection(IReadOnlyList<IPlayer> list)
@@ -12,13 +13,15 @@ public class PlayerCollection : IPlayerCollection
         List = list;
     }
 
-    public PlayerCollection()
+    public PlayerCollection(int iD)
     {
+        ID = iD;
         List = new List<IPlayer>();
     }
 
     public PlayerCollection(DtoPlayerCollection dto)
     {
+        ID = dto.ID;
         List<IPlayer> temp = new();
         foreach (DtoPlayer dtoplayer in dto.List)
             temp.Add(new Player(dtoplayer));

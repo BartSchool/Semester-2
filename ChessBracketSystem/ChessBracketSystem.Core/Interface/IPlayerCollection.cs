@@ -2,6 +2,7 @@
 
 public interface IPlayerCollection
 {
+    public int ID { get; }
     IReadOnlyList<IPlayer> List { get; }
 
     void Add(IPlayer player);

@@ -11,22 +11,18 @@ public class Match : IMatch
     public string Result { get; private set; }
     public bool Finished { get; private set; }
 
-    public Match(int id, DateTime startTime, string result, bool finished)
+    public Match(int id, DateTime startTime, string result, bool finished, IPlayerCollection players)
     {
         ID = id;
         StartTime = startTime;
         Result = result;
         Finished = finished;
-        Players = new PlayerCollection();
-    }
-
-    public Match(int id, DateTime startTime, string result, bool finished, IPlayerCollection players) : this(id, startTime,result,finished)
-    {
         Players = players;
     }
 
     public Match(DtoMatch dto)
     {
+        ID = dto.ID;
         StartTime = dto.StartTime;
         Players = new PlayerCollection(dto.Players);
         Result = dto.Result;

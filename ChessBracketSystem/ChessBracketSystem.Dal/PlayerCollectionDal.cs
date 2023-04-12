@@ -2,20 +2,27 @@
 using ChessBracketSystem.Core.Dto;
 using ChessBracketSystem.Core.Interface;
 using Microsoft.Data.SqlClient;
-using System.Numerics;
 
 namespace ChessBracketSystem.Dal;
 
 public class PlayerCollectionDal : IPlayerCollection
 {
     private static readonly string connectionString = @"Server=LAPTOP-1JC5056U\SQLEXPRESS; Database=ChessBracketSystem; Trusted_Connection=True; TrustServerCertificate=True";
-
+    public int ID { get; private set; }
     public IReadOnlyList<IPlayer> List { get; private set; }
 
     public PlayerCollectionDal()
     {
         List = new List<IPlayer>();
         updateList();
+    }
+
+    public List<DtoPlayer> GetPlayers()
+    {
+        List<DtoPlayer> list = new List<DtoPlayer>();
+        foreach (IPlayer player in List)
+            list.Add(new DtoPlayer(player));
+        return list;
     }
 
     private void updateList()
@@ -25,14 +32,14 @@ public class PlayerCollectionDal : IPlayerCollection
         connection.Open();
 
         var command = new SqlCommand(
-            "select Username, Rating from Player",
+            "select ID, Username, Rating from Player",
             connection);
         var reader = command.ExecuteReader();
 
         if (reader != null)
             while (reader.Read())
             {
-                DtoPlayer nextplayer = new(reader.GetString(0), reader.GetInt32(1));
+                DtoPlayer nextplayer = new(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
                 temp.Add(new Player(nextplayer));
             }
 
@@ -116,12 +123,12 @@ public class PlayerCollectionDal : IPlayerCollection
 
     internal DtoPlayer GetPlayerFromID(int id)
     {
-        DtoPlayer player = new("new", 0);
+        DtoPlayer player = new(0, "new", 0);
 
         using var connection = new SqlConnection(connectionString);
         connection.Open();
         var command = new SqlCommand(
-            "select UserName, Rating from Player Where ID = " + id,
+            "select ID, UserName, Rating from Player Where ID = " + id,
             connection);
 
         var reader = command.ExecuteReader();
@@ -129,10 +136,11 @@ public class PlayerCollectionDal : IPlayerCollection
         if (reader != null)
             while (reader.Read())
             {
-                string name = reader.GetString(0);
-                int rating = reader.GetInt32(1);
+                int idee = reader.GetInt32(0);
+                string name = reader.GetString(1);
+                int rating = reader.GetInt32(2);
 
-                player = new(name, rating);
+                player = new(idee, name, rating);
             }
 
         connection.Close();

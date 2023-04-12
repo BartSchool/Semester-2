@@ -1,4 +1,5 @@
-﻿@using ChessBracketSystem.View.Models;
+﻿@using ChessBracketSystem.Core.Dto
+@using ChessBracketSystem.View.Models;
 @using ChessBracketSystem.Core.Interface;
 @using ChessBracketSystem.Core;
 
@@ -6,7 +7,7 @@
 
 <div>
     <a class="button" asp-controller="Player" asp-action="AddPlayer">Add</a>
-    @foreach (IPlayer player in Model.Players.List){
+    @foreach (DtoPlayer player in Model.Players){
         <div class="containerH">
             <div class="mycontainer">
                 @player.Name - @player.Rating

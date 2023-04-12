@@ -2,14 +2,13 @@
 using ChessBracketSystem.Core.Dto;
 using ChessBracketSystem.Core.Interface;
 using Microsoft.Data.SqlClient;
-using System.Numerics;
 
 namespace ChessBracketSystem.Dal;
 
 public class MatchCollectionDal : IMatchCollection
 {
     private static readonly string connectionString = @"Server=LAPTOP-1JC5056U\SQLEXPRESS; Database=ChessBracketSystem; Trusted_Connection=True";
-
+    public int ID { get; private set; }
     public IReadOnlyList<IMatch> List { get; private set; }
 
     public MatchCollectionDal()
@@ -39,7 +38,7 @@ public class MatchCollectionDal : IMatchCollection
                 bool finished = reader.GetBoolean(3);
                 int listid = reader.GetInt32(4);
 
-                DtoPlayerCollection collection = new(playersDB.GetPlayersFromIDs(playersDB.GetPlayerIDsFromList(listid)));
+                DtoPlayerCollection collection = new(ID, playersDB.GetPlayersFromIDs(playersDB.GetPlayerIDsFromList(listid)));
 
                 Match next = new Match(id, start, result, finished, new PlayerCollection(collection));
                 temp.Add(next);

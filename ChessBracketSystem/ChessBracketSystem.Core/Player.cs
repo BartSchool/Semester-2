@@ -5,11 +5,13 @@ namespace ChessBracketSystem.Core;
 
 public class Player : IPlayer
 {
+    public int ID { get; private set; }
     public string Name { get; private set; }
     public int Rating { get; private set; }
 
-    public Player(string name, int rating)
+    public Player(int iD, string name, int rating)
     {
+        ID = iD;
         Name = name;
         Rating = rating;
     }
