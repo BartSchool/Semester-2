@@ -10,17 +10,19 @@ public class PlayerCollection
 	public PlayerCollection(IPlayerCollection playerCollection)
 	{
 		_playerDB = playerCollection;
+		Players = _playerDB.GetPlayers();
 	}
 
 	public void AddPlayer(string name)
 	{
-		if (_playerDB.CanAddPlayer(name))
+		if (_playerDB.DoesPlayerExist(name))
 			_playerDB.AddPlayer(name);
 	}
 
 	public void AddPlayer(string name, int rating)
 	{
-		if (_playerDB.CanAddPlayer(name))
+		if (!_playerDB.DoesPlayerExist(name))
+			throw new Exception("player allready exist");
 		_playerDB.AddPlayer(name, rating);
 	}
 
