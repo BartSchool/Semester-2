@@ -1,0 +1,12 @@
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\bin\Debug\net6.0\NewCBS.Core.deps.json
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\bin\Debug\net6.0\NewCBS.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\bin\Debug\net6.0\NewCBS.Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.csproj.AssemblyReference.cache
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.AssemblyInfoInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.AssemblyInfo.cs
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.csproj.CoreCompileInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\refint\NewCBS.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\NewCBS.Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewChessBracketSystem\obj\Debug\net6.0\ref\NewCBS.Core.dll
