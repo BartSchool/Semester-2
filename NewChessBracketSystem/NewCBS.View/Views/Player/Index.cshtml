@@ -1,0 +1,31 @@
+﻿@model PlayersModel
+@using NewCBS.Core
+
+@{
+    int ID = Model.ID;
+}
+
+<div>
+    <div>
+        <form method="post" asp-controller="Player" asp-action="Index">
+            <label asp-for="ID">List ID</label>
+            <input asp-for="ID" type="number" min="0" value="@ID"/>
+            <input type="submit" />
+            <div>(0 means all the players)</div>
+        </form>
+
+        <form method="get" asp-controller="Player" asp-action="AddPlayer">
+            <div style="display: none">
+                <input asp-for="ID" type="number" min="0" value="@ID" />
+            </div>
+            <input type="submit" value="Add Player"/>
+        </form>
+
+        @foreach (Player player in Model.players){
+            <div>
+                <div>@player.Name</div>
+                <div> @player.Ranking</div>
+            </div>
+        }
+    </div>
+</div>

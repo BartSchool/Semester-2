@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "NewCBS.MockData/1.0.0": {
+        "dependencies": {
+          "NewCBS.Core": "1.0.0"
+        },
+        "runtime": {
+          "NewCBS.MockData.dll": {}
+        }
+      },
+      "NewCBS.Core/1.0.0": {
+        "runtime": {
+          "NewCBS.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "NewCBS.MockData/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NewCBS.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

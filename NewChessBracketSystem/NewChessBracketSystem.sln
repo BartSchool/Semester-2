@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewCBS.Core", "NewChessBrac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewCBS.View", "NewCBS.View\NewCBS.View.csproj", "{9BACDBA8-7B4E-4D98-A3B3-9C1EF66504A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewCBS.Dal", "NewCBS.Dal\NewCBS.Dal.csproj", "{91326014-E2BC-4443-8D6F-9B9E09B32D0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewCBS.Dal", "NewCBS.Dal\NewCBS.Dal.csproj", "{91326014-E2BC-4443-8D6F-9B9E09B32D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewCBS.MockData", "NewCBS.MockData\NewCBS.MockData.csproj", "{EF13B17C-14CC-40B8-A0F8-8D603AF2142F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewCBS.Tests", "NewCBS.Tests\NewCBS.Tests.csproj", "{7ED6E91D-3D6C-4376-9A04-D57373ED77E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{91326014-E2BC-4443-8D6F-9B9E09B32D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91326014-E2BC-4443-8D6F-9B9E09B32D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91326014-E2BC-4443-8D6F-9B9E09B32D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF13B17C-14CC-40B8-A0F8-8D603AF2142F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF13B17C-14CC-40B8-A0F8-8D603AF2142F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF13B17C-14CC-40B8-A0F8-8D603AF2142F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF13B17C-14CC-40B8-A0F8-8D603AF2142F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED6E91D-3D6C-4376-9A04-D57373ED77E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED6E91D-3D6C-4376-9A04-D57373ED77E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED6E91D-3D6C-4376-9A04-D57373ED77E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED6E91D-3D6C-4376-9A04-D57373ED77E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

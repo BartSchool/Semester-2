@@ -1,0 +1,15 @@
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.csproj.AssemblyReference.cache
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.AssemblyInfoInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.AssemblyInfo.cs
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.csproj.CoreCompileInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\bin\Debug\net6.0\NewCBS.Dal.deps.json
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\bin\Debug\net6.0\NewCBS.Dal.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\bin\Debug\net6.0\NewCBS.Dal.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\bin\Debug\net6.0\NewCBS.Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\bin\Debug\net6.0\NewCBS.Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.csproj.CopyComplete
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\refint\NewCBS.Dal.dll
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\NewCBS.Dal.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\NewChessBracketSystem\NewCBS.Dal\obj\Debug\net6.0\ref\NewCBS.Dal.dll

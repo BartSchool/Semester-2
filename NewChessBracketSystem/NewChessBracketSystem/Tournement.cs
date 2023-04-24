@@ -4,66 +4,33 @@ namespace NewCBS.Core;
 
 public class Tournement
 {
-    private IPlayerCollection _PlayerDB { get; set; } 
     public string Name { get; private set; }
     public int MaxPlayers { get; private set; }
     public DateTime StartTime { get; private set; }
-    public IReadOnlyList<Player> Players { get; private set; }
-    public IReadOnlyList<Player> InvitedPlayers { get; private set; }
+    public PlayerCollection Players { get; private set; }
+    public PlayerCollection InvitedPlayers { get; private set; }
 
-    public Tournement(string name, int maxPlayers, DateTime startTime, IPlayerCollection PlayerDB)
+    public Tournement(string name, int maxPlayers, DateTime startTime, IPlayerDal playerData)
     {
-        _PlayerDB = PlayerDB;
         Name = name;
         MaxPlayers = maxPlayers;
         StartTime = startTime;
-        Players = new List<Player>();
-        InvitedPlayers = new List<Player>();
+        Players = new PlayerCollection(playerData);
+        InvitedPlayers = new PlayerCollection(playerData);
     }
 
-    public void AddPlayer(string name)
+    public void EditName(string name)
     {
-        List<Player> temp =new(Players);
-        Player? playerfromDB = _PlayerDB.GetPlayer(name);
-        if (playerfromDB == null)
-            throw new Exception("Player does not exist");
-        temp.Add(playerfromDB);
-        Players = temp;
+        Name = name;
     }
 
-    public void RemovePlayer(string name)
+    public void EditMaxPlayers(int maxPlayers)
     {
-        List<Player> temp = new(Players);
-
-        Player? removedPlayer = _PlayerDB.GetPlayer(name);
-        if (removedPlayer == null)
-            throw new Exception("Cant remove a player that doesnt exist");
-        _PlayerDB.RemovePlayer(name);
-        temp.Remove(removedPlayer);
-
-        Players = temp;
+        MaxPlayers = maxPlayers;
     }
 
-    public void AddInvitedPlayer(string name)
+    public void EditStartTime(DateTime startTime)
     {
-        List<Player> temp = new(Players);
-        Player? playerfromDB = _PlayerDB.GetPlayer(name);
-        if (playerfromDB == null)
-            throw new Exception("Player does not exist");
-        temp.Add(playerfromDB);
-        InvitedPlayers = temp;
-    }
-
-    public void RemoveInvitedPlayer(string name)
-    {
-        List<Player> temp = new(Players);
-
-        Player? removedPlayer = _PlayerDB.GetPlayer(name);
-        if (removedPlayer == null)
-            throw new Exception("Cant remove a player that doesnt exist");
-        _PlayerDB.RemovePlayer(name);
-        temp.Remove(removedPlayer);
-
-        InvitedPlayers = temp;
+        StartTime = startTime;
     }
 }

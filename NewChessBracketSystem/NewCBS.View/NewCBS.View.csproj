@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NewCBS.Dal\NewCBS.Dal.csproj" />
     <ProjectReference Include="..\NewChessBracketSystem\NewCBS.Core.csproj" />
   </ItemGroup>
 

@@ -4,40 +4,108 @@ namespace NewCBS.Core;
 
 public class PlayerCollection
 {
-    private IPlayerCollection _playerDB { get; set; }
-	public IReadOnlyList<Player> Players { get; private set; }
+	private int? MaxPlayers { get; set; }
+    private IPlayerDal _playerDB { get; set; }
+	public IReadOnlyList<Player> List { get; private set; }
 
-	public PlayerCollection(IPlayerCollection playerCollection)
+	public PlayerCollection(IPlayerDal playerCollection)
 	{
 		_playerDB = playerCollection;
-		Players = _playerDB.GetPlayers();
+		List = SetPlayers();
+		MaxPlayers = null;
+    }
+
+	public PlayerCollection(IPlayerDal playerCollection, int maxPlayers) : this(playerCollection)
+	{
+		MaxPlayers = maxPlayers;
 	}
 
 	public void AddPlayer(string name)
 	{
-		if (_playerDB.DoesPlayerExist(name))
-			_playerDB.AddPlayer(name);
-	}
+		List<Player> list = new List<Player>();
+		if (CanAddPlayer(name))
+            _playerDB.AddPlayer(name);
+
+        list.Add(new Player(800, name));
+        List = list;
+    }
 
 	public void AddPlayer(string name, int rating)
 	{
-		if (!_playerDB.DoesPlayerExist(name))
-			throw new Exception("player allready exist");
-		_playerDB.AddPlayer(name, rating);
-	}
+        List<Player> list = new List<Player>();
+        if (CanAddPlayer(name))
+             _playerDB.AddPlayer(name, rating);
+
+        list.Add(new Player(rating, name));
+        List = list;
+    }
 
 	public void RemovePlayer(string name)
 	{
-		_playerDB.RemovePlayer(name);
+		List<Player > list = new List<Player>();
+		if (CanRemovePlayer(name))
+            _playerDB.RemovePlayer(name);
+		
+		Player player = GetPlayer(name);
+		list.Remove(player);
 	}
 
-	public Player? GetPlayer(string name)
+	public Player GetPlayer(string name)
 	{
-		return _playerDB.GetPlayer(name);
+		foreach (Player player in List)
+			if (player.Name == name)
+				return player;
+		throw new Exception("player does not exist");
 	}
 
-	public List<Player> GetPlayers(int ListID)
+	public List<string> GetPlayerNames()
 	{
-		return _playerDB.GetPlayers(ListID);
+		List<string> result = new();
+		foreach (Player player in List)
+			result.Add(player.Name);
+		return result;
+	}
+
+    public List<Player> GetPlayers()
+    {
+		return new(List);
+    }
+
+	private IReadOnlyList<Player> SetPlayers()
+	{
+		List<Player> result = new List<Player>();
+		List<string> names = _playerDB.GetPlayerNames();
+		foreach (string name in names)
+		{
+			int? rating = _playerDB.GetPlayerRating(name);
+
+            if (rating != null)
+				result.Add(new Player((int)rating, name));
+		}
+		return result;
+	}
+
+    private bool DoesPlayerExist(string name)
+	{
+		foreach (Player player in List)
+			if (player.Name == name)
+				return true;
+		return false;
+	}
+
+	private bool CanRemovePlayer(string name)
+	{
+		if (!DoesPlayerExist(name))
+			throw new Exception("player does not exist");
+		return true;
+	}
+
+	private bool CanAddPlayer(string name)
+	{
+		if (DoesPlayerExist(name))
+			throw new Exception("player allready exist");
+		if (List.Count == MaxPlayers)
+			throw new Exception("allready enough players");
+		return true;
 	}
 }

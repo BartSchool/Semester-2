@@ -1,0 +1,23 @@
+﻿@model AddPlayerModel
+@using NewCBS.Core
+@using NewCBS.Dal
+
+@{
+    PlayerCollection players = new(new AllPlayerData());
+}
+
+<div>
+    <form method="post" asp-controller="Player" asp-action="AddPlayer">
+        <div style="display: none">
+            <input asp-for="ID" type="number"/>
+        </div>
+        <input asp-for="name" type="text" list="users"/>
+        <input asp-for="rating" type="number" />
+        <input type="submit"/>
+    </form>
+    <datalist id="users">
+        @foreach (string player in Model.players){
+            <option value="@player" />
+        }
+    </datalist>
+</div>
