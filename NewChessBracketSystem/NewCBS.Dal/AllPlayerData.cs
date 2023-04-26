@@ -12,19 +12,6 @@ public class AllPlayerData : IPlayerDal
 
     }
 
-    public void AddPlayer(string name)
-    {
-        using var connection = new SqlConnection(connectionString);
-        connection.Open();
-
-        var command = new SqlCommand(
-            "insert into Player (Username, Rating)" +
-            "values('" + name + "', " + 800 + ")",
-            connection);
-        var reader = command.ExecuteReader();
-        connection.Close();
-    }
-
     public void AddPlayer(string name, int rating)
     {
         using var connection = new SqlConnection(connectionString);
@@ -60,21 +47,19 @@ public class AllPlayerData : IPlayerDal
             "select Username from Player",
             connection);
         var reader = command.ExecuteReader();
+        if (reader == null)
+            throw new Exception("incorrect sql code");
 
-        if (reader != null)
-            while (reader.Read())
-            {
-                result.Add(reader.GetString(0));
-            }
+        while (reader.Read())
+            result.Add(reader.GetString(0));
 
         connection.Close();
 
         return result;
     }
 
-    public int? GetPlayerRating(string name)
+    public int GetPlayerRating(string name)
     {
-        int? result = null;
         using var connection = new SqlConnection(connectionString);
         connection.Open();
 
@@ -82,22 +67,53 @@ public class AllPlayerData : IPlayerDal
             "select Rating from Player where UserName = '" + name + "'",
             connection);
         var reader = command.ExecuteReader();
-
-        if (reader != null)
-            while (reader.Read())
-            {
-                result = reader.GetInt32(0);
-            }
+        if (reader == null)
+            throw new Exception("incorrect sql code");
+        reader.Read();
+        int result = reader.GetInt32(0);
 
         connection.Close();
 
         return result;
     }
 
-    public bool DoesPlayerExist(string name)
+    internal int GetPlayerID(string name)
     {
-        if (GetPlayerRating(name) == null)
-            return false;
-        return true;
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        var command = new SqlCommand(
+            "select ID from Player where UserName = '" + name + "'",
+            connection);
+        var reader = command.ExecuteReader();
+        if (reader == null)
+            throw new Exception("incorrect sql code");
+
+        reader.Read();
+        int result = reader.GetInt32(0);
+
+        connection.Close();
+
+        return result;
+    }
+
+    internal string GetPlayerName(int id)
+    {
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        var command = new SqlCommand(
+            "select UserName from Player where ID = " + id,
+            connection);
+        var reader = command.ExecuteReader();
+        if (reader == null)
+            throw new Exception("incorrect sql code");
+
+        reader.Read();
+        string result = reader.GetString(0);
+
+        connection.Close();
+
+        return result;
     }
 }

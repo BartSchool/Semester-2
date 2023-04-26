@@ -1,0 +1,16 @@
+﻿@model AddPlayerModel
+@using NewCBS.Core
+
+<form method="post" asp-action="AddPlayer">
+    <div hidden>
+        <input asp-for="ID" value="@Model.ID" type="number" />
+    </div>
+    <input list="playernames" asp-for="name" type="text" />
+    <input type="submit" value="add player to tournement"/>
+</form>
+
+<datalist id="playernames">
+    @foreach (string name in Model.players){
+        <option value="@name"></option>
+    }
+</datalist>

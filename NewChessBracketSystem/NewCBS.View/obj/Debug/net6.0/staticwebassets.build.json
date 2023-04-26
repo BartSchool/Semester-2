@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WvfxFlMGjASlO/Hh/oXEjyPlcmdXef4bWSSplEpRynI=",
+  "Hash": "xrK3jBedS2PMcDq8KVxJZku47VwV7K87szRxmlp7sI8=",
   "Source": "NewCBS.View",
   "BasePath": "_content/NewCBS.View",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\NewChessBracketSystem\\NewCBS.View\\wwwroot\\css\\Tournements.css",
+      "SourceId": "NewCBS.View",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\NewChessBracketSystem\\NewCBS.View\\wwwroot\\",
+      "BasePath": "_content/NewCBS.View",
+      "RelativePath": "css/Tournements.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Tournements.css"
     },
     {
       "Identity": "C:\\Users\\31618\\Documents\\GitHub\\Semester-2\\NewChessBracketSystem\\NewCBS.View\\wwwroot\\favicon.ico",

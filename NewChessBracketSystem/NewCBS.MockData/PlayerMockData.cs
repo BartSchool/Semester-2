@@ -14,12 +14,12 @@ public class PlayerMockData : IPlayerDal
 
     public void AddPlayer(string name)
     {
-        players.Add(new Player(700, name));
+        players.Add(new Player(name));
     }
 
     public void AddPlayer(string name, int rating)
     {
-        players.Add(new Player(rating, name));
+        players.Add(new Player(name, rating));
     }
 
     public void RemovePlayer(string name)
@@ -43,12 +43,5 @@ public class PlayerMockData : IPlayerDal
         foreach (Player player in players)
             names.Add(player.Name);
         return names;
-    }
-
-    public bool DoesPlayerExist(string name)
-    {
-        if (GetPlayerRating(name) == null)
-            return false;
-        return true;
     }
 }

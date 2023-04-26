@@ -1,0 +1,47 @@
+﻿.Tournement {
+    margin: 10px;
+    flex-direction: row;
+    background-color: oldlace;
+    border: solid;
+    border-width: 1px;
+    border-radius: 100px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.text {
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.text input {
+    flex-grow: 0;
+    background: none;
+    border: none;
+    color: blue;
+}
+
+.TournementContainer {
+    flex-direction:column;
+    justify-content: space-evenly;
+}
+
+.TournementInfo {
+    background-color: lightblue;
+}
+
+.playerSection {
+    justify-content: space-evenly;
+}
+
+.PlayerContainer {
+    flex-direction: column;
+}
+
+.Players {
+    border: 1px solid;
+}
+
+.playerTable {
+    flex-direction: column;
+}

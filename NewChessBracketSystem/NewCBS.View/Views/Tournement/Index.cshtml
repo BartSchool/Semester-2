@@ -1,0 +1,72 @@
+﻿@model TournementModel
+@using NewCBS.Core
+
+<link rel="stylesheet" href="~/css/Tournements.css" asp-append-version="true" />
+
+<div class="backgroundContainer">
+    <div class="TournementContainer">
+        <div class="TournementInfo">
+            @Model.tournement.Name
+        </div>
+
+        <div class="playerSection">
+            <div class="PlayerContainer">
+                <div class="text">
+                    <div>
+                        Players
+                    </div>
+                    <form method="get" asp-action="AddPlayer">
+                        <div hidden>
+                            <input asp-for="Id" value="@Model.Id" />
+                        </div>
+                        <input type="submit" value="Add" />
+                    </form>
+                </div>    
+                <div class="Players">
+                    <div class="playerTable">
+                        <div class="TableRow">
+                            <div class="TableColumn">name</div>
+                            <div class="TableColumn">rating</div>
+                        </div>
+                        @foreach (Player player in Model.tournement.Players)
+                        {
+                            <div class="TableRow">
+                                <div class="TableColumn">@player.Name</div>
+                                <div class="TableColumn">@player.Ranking</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class ="PlayerContainer">
+                <div class="text">
+                    <div>
+                        Invited players
+                    </div>
+                    <form>
+                        <div hidden>
+                            <input asp-for="Id" value="@Model.Id" />
+                        </div>
+                        <input type="submit" value="Invite" />
+                    </form>
+                </div>
+                <div class="Players">
+                    <div class="playerTable">
+                        <div class="TableRow">
+                            <div class="TableColumn">name</div>
+                            <div class="TableColumn">rating</div>
+                            <div class="TableColumn"></div>
+                        </div>
+                        @foreach (Player player in Model.tournement.InvitedPlayers)
+                        {
+                            <div class="TableRow">
+                                <div class="TableColumn">@player.Name</div>
+                                <div class="TableColumn">@player.Ranking</div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

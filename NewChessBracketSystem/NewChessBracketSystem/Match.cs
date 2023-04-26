@@ -4,21 +4,23 @@ namespace NewCBS.Core;
 
 public class Match
 {
-    public PlayerCollection Players { get; private set; }
+    public Player Player1 { get; private set; }
+    public Player Player2 { get; private set; }
     public MatchResult Result { get; private set; }
     public DateTime StartTime { get; private set; }
 
-    public Match(DateTime startTime, IPlayerDal playerData)
+    public Match(DateTime startTime, Player p1, Player p2)
     {
         if (startTime < DateTime.UtcNow)
             throw new Exception("Can't make a match in the past");
 
-        Players = new PlayerCollection(playerData, 2);
+        Player1 = p1;
+        Player2 = p2;
         Result = MatchResult.NotPlayed;
         StartTime = startTime;
     }
 
-    public Match(DateTime startTime, MatchResult result, IPlayerDal playerData) : this(startTime, playerData)
+    public Match(DateTime startTime, MatchResult result, Player p1, Player p2) : this(startTime, p1, p2)
     {
         Result = result;
     }
@@ -32,8 +34,8 @@ public class Match
 
     public void SetPlayers(Player player1, Player player2)
     {
-        Players.AddPlayer(player1.Name, player1.Ranking);
-        Players.AddPlayer(player2.Name, player1.Ranking);
+        Player1 = player1;
+        Player2 = player2;
     }
 
     public void UpdateResult(MatchResult newResult)
@@ -43,6 +45,9 @@ public class Match
 
     public List<Player> GetPlayers()
     {
-        return new List<Player>(Players.List);
+        List<Player> list = new List<Player>();
+        list.Add(Player1);
+        list.Add(Player2);
+        return list;
     }
 }

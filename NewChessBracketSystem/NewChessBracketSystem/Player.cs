@@ -5,10 +5,15 @@ public class Player
     public int Ranking { get; private set; }
     public string Name { get; private set; }
 
-    public Player(int ranking, string name)
+    public Player(string name)
+    {
+        Name = name;
+        Ranking = 500;
+    }
+
+    public Player(string name, int ranking) : this(name)
     {
         Ranking = ranking;
-        Name = name;
     }
 
     public void Edit(string name)

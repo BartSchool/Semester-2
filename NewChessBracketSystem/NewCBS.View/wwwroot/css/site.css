@@ -16,3 +16,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.backgroundContainer div, form, input {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 5px;
+}
