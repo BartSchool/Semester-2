@@ -120,8 +120,8 @@ public class TournementDal : IToernementDal
 
         var command = new SqlCommand(
             "if not exists (select * from InvitedPlayers where TournementID = " + ID + " and PlayerId = " + playerID + ")" +
-            " begin insert into Players (TournementID, PlayerId)" +
-            "values (" + ID + "," + playerID + ")",
+            " begin insert into InvitedPlayers (TournementID, PlayerId)" +
+            "values (" + ID + "," + playerID + ") end",
             connection);
         var reader = command.ExecuteReader();
 

@@ -39,10 +39,13 @@ public class PlayerCollection
 
 	public Player GetPlayer(string name)
 	{
-		foreach (Player player in List)
-			if (player.Name == name)
-				return player;
-		throw new Exception("player does not exist");
+		if (DoesPlayerExist(name))
+		{
+			foreach (Player player in List)
+				if (player.Name == name)
+					return player;
+		}
+		throw new Exception("Could not get player for unknown reasons");
 	}
 
 	public List<string> GetPlayerNames()

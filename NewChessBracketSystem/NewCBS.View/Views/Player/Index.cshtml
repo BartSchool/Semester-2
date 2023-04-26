@@ -1,12 +1,16 @@
 ﻿@model PlayersModel
 @using NewCBS.Core
 
+<link rel="stylesheet" href="~/css/Tournements.css" asp-append-version="true" />
+
 <div>
     <div>
+        <form method="get" asp-action="AddPlayer">
+            <input type="submit" value="Add new player"/>
+        </form>
         @foreach (Player player in Model.players){
-            <div>
-                <div>@player.Name</div>
-                <div> @player.Ranking</div>
+            <div class="player">
+                <div>@player.Name @player.Ranking</div>
             </div>
         }
     </div>

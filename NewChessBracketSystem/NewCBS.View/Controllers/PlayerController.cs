@@ -17,4 +17,19 @@ public class PlayerController : Controller
 
         return View(model);
     }
+
+    [HttpGet]
+    public IActionResult AddPlayer()
+    {
+        AddPlayerModel model = new AddPlayerModel();
+        return View(model);
+    }
+
+    [HttpPost]
+    public IActionResult AddPlayer(AddPlayerModel model)
+    {
+        PlayerCollection playerCollection = new(new AllPlayerData());
+        playerCollection.AddPlayer(model.name, model.rating);
+        return RedirectToAction("Index");
+    }
 }

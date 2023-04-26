@@ -33,5 +33,24 @@ namespace NewCBS.View.Controllers
             model.ID = oldModel.ID;
             return RedirectToAction("index", model);
         }
+
+        [HttpGet]
+        public IActionResult InvitePlayer(TournementModel oldModel)
+        {
+            AddPlayerModel model = new AddPlayerModel();
+            model.ID = oldModel.Id;
+            model.players = new PlayerCollection(new AllPlayerData()).GetPlayerNames();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult InvitePlayer(AddPlayerModel oldModel)
+        {
+            Tournement tournement = new(new TournementDal(oldModel.ID));
+            tournement.InvitePlayer(oldModel.name);
+            TournementsModel model = new();
+            model.ID = oldModel.ID;
+            return RedirectToAction("index", model);
+        }
     }
 }

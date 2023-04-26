@@ -5,7 +5,6 @@ namespace NewCBS.Tests;
 
 public class PlayerCollectionTests
 {
-    PlayerGenerator PG = new PlayerGenerator();
     //paramaterised tests
 
     [Fact]
@@ -13,11 +12,10 @@ public class PlayerCollectionTests
     {
         //arrange
         PlayerCollection playerCollection = new PlayerCollection(new PlayerMockData());
-        string name = "bart";
-        playerCollection.AddPlayer(name);
+        playerCollection.AddPlayer("bart");
 
         //act
-        Action act = () => playerCollection.AddPlayer(name);
+        Action act = () => playerCollection.AddPlayer("bart");
 
         //assert
         Exception exception = Assert.Throws<Exception>(act);

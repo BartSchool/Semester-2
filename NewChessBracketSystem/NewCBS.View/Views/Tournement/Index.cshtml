@@ -38,35 +38,37 @@
                     </div>
                 </div>
             </div>
-            <div class ="PlayerContainer">
-                <div class="text">
-                    <div>
-                        Invited players
-                    </div>
-                    <form>
-                        <div hidden>
-                            <input asp-for="Id" value="@Model.Id" />
+            @if (!Model.tournement.isOpen) {
+                <div class ="PlayerContainer">
+                    <div class="text">
+                        <div>
+                            Invited players
                         </div>
-                        <input type="submit" value="Invite" />
-                    </form>
-                </div>
-                <div class="Players">
-                    <div class="playerTable">
-                        <div class="TableRow">
-                            <div class="TableColumn">name</div>
-                            <div class="TableColumn">rating</div>
-                            <div class="TableColumn"></div>
-                        </div>
-                        @foreach (Player player in Model.tournement.InvitedPlayers)
-                        {
-                            <div class="TableRow">
-                                <div class="TableColumn">@player.Name</div>
-                                <div class="TableColumn">@player.Ranking</div>
+                        <form method="get" asp-action="InvitePlayer">
+                            <div hidden>
+                                <input asp-for="Id" value="@Model.Id" />
                             </div>
-                        }
+                            <input type="submit" value="Invite" />
+                        </form>
+                    </div>
+                    <div class="Players">
+                        <div class="playerTable">
+                            <div class="TableRow">
+                                <div class="TableColumn">name</div>
+                                <div class="TableColumn">rating</div>
+                                <div class="TableColumn"></div>
+                            </div>
+                            @foreach (Player player in Model.tournement.InvitedPlayers)
+                            {
+                                <div class="TableRow">
+                                    <div class="TableColumn">@player.Name</div>
+                                    <div class="TableColumn">@player.Ranking</div>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </div>

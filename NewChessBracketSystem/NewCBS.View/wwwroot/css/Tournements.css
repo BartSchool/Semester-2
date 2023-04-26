@@ -11,7 +11,6 @@
 
 .text {
     justify-content: center;
-    background-color: antiquewhite;
 }
 
 .text input {
@@ -34,14 +33,15 @@
     justify-content: space-evenly;
 }
 
-.PlayerContainer {
-    flex-direction: column;
-}
-
 .Players {
     border: 1px solid;
 }
 
-.playerTable {
+.PlayerContainer, .playerTable {
     flex-direction: column;
+}
+
+.player {
+    display: flex;
+    justify-content: center;
 }

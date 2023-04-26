@@ -10,7 +10,8 @@
 </form>
 
 <datalist id="playernames">
-    @foreach (string name in Model.players){
+    @foreach (string name in Model.players)
+    {
         <option value="@name"></option>
     }
 </datalist>

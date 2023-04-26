@@ -1,5 +1,17 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model AddPlayerModel
+@using NewCBS.Core
+
+<form method="post" asp-action="InvitePlayer">
+    <div hidden>
+        <input asp-for="ID" value="@Model.ID" type="number" />
+    </div>
+    <input list="playernames" asp-for="name" type="text" />
+    <input type="submit" value="Invite player to tournement" />
+</form>
+
+<datalist id="playernames">
+    @foreach (string name in Model.players)
+    {
+        <option value="@name"></option>
+    }
+</datalist>
