@@ -4,20 +4,40 @@
 <link rel="stylesheet" href="~/css/Tournements.css" asp-append-version="true" />
 
 <div class="backgroundContainer">
-    @for (int i = 0; i < Model.Tournementnames.Count; i++){
-        <form id="form-@i" class="Tournement" asp-controller="Tournement" asp-action="Index" onclick="submitForm('form-@i')">
-            <div hidden>
-                <input asp-for="ID" type="number" value="@Model.Ids[i]"/>
+    <div class="tournementOptions">
+
+        <a asp-action="AddTournement" class="a-button">add tournement</a>
+    </div>
+    <div class="Tournements">
+        <div class="t">
+            <div class="tournementDate">
+                Start date
             </div>
-            <div>
-                @Model.StartTimes[i].Day/@Model.StartTimes[i].Month/@Model.StartTimes[i].Year
+            <div class="tournementName">
+                Name
             </div>
-            <div>
-                @Model.Tournementnames[i]
+            <div class="tournementPlayers">
+                Max players
             </div>
-            <div>
-                @Model.MaxPlayers[i]
-            </div>
-        </form>
-    }
+        </div>
+        @for (int i = 0; i < Model.Tournementnames.Count; i++){
+            <form id="form-@i" class="Tournement" asp-controller="Tournement" asp-action="Index" onclick="submitForm('form-@i')">
+                <div hidden>
+                    <input asp-for="ID" type="number" value="@Model.Ids[i]"/>
+                </div>
+                <div class="tournementDate">
+                    @Model.StartTimes[i].Day/@Model.StartTimes[i].Month/@Model.StartTimes[i].Year
+                </div>
+                <div class="tournementName">
+                    @Model.Tournementnames[i]
+                </div>
+                <div class="tournementPlayers">
+                    @Model.MaxPlayers[i]
+                </div>
+            </form>
+        }
+    </div>
 </div>
+
+<script src="~/js/background.js" asp-append-version="true"></script>
+<script>createBox();</script>

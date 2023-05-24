@@ -7,7 +7,7 @@ public class AllTournementDal : IAllTournementDal
 {
     private static readonly string connectionString = @"Server=LAPTOP-1JC5056U\SQLEXPRESS; Database=ChessBracketSystem; Trusted_Connection=True; TrustServerCertificate=True";
 
-    public void AddTournement(string name, DateTime startTime, bool IsOpen, int maxPlayers)
+    public void AddTournement(string name, DateTime startTime, bool IsOpen, int maxPlayers, string bracketType)
     {
         int open = 0;
         if (IsOpen)
@@ -17,12 +17,22 @@ public class AllTournementDal : IAllTournementDal
         connection.Open();
 
         var command = new SqlCommand(
-            "if not exists (select ID from Tournooi where name = " + name + ")" +
-            "begin insert into Toernooi (StartTime, Open, name, maxPlayers)" +
-            "values ('" + startTime + "'," + open + ",'" + name + "'," + maxPlayers + ") end",
+            "if not exists (select ID from Toernooi where [name] = '" + name + "')" +
+            "begin insert into Toernooi (StartTime, [Open], [name], maxPlayers)" +
+            "values ('" + startTime.ToString("yyyy-MM-dd HH:mm:ss") + "'," + open + ",'" + name + "'," + maxPlayers + ") end",
             connection);
         var reader = command.ExecuteReader();
 
+        connection.Close();
+
+        connection.Open();
+
+        command = new SqlCommand(
+            "insert into Bracket (TournementID, Type)" +
+            "values ((select ID from Toernooi where [name] = '" + name + "'),'" + bracketType + "')",
+            connection);
+        reader = command.ExecuteReader();
+                    
         connection.Close();
     }
 

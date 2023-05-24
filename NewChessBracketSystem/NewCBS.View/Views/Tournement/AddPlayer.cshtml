@@ -1,6 +1,7 @@
 ﻿@model AddPlayerModel
 @using NewCBS.Core
 
+@Html.ValidationMessage("add","", new { @class = "text-danger"})
 <form method="post" asp-action="AddPlayer">
     <div hidden>
         <input asp-for="ID" value="@Model.ID" type="number" />

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using NewCBS.Core;
 using NewCBS.Core.Interfaces;
 
 namespace NewCBS.Dal;
@@ -137,7 +138,7 @@ public class TournementDal : IToernementDal
             connection.Open();
 
             var command = new SqlCommand(
-                "delete from Players where ID = " + id,
+                "delete from Players where PlayerId = " + id + " and TournementID = " + ID,
                 connection);
             var reader = command.ExecuteReader();
 
@@ -154,7 +155,7 @@ public class TournementDal : IToernementDal
             connection.Open();
 
             var command = new SqlCommand(
-                "delete from InvitedPlayers where ID = " + id,
+                "delete from InvitedPlayers where PlayerId = " + id + " and TournementID = " + ID,
                 connection);
             var reader = command.ExecuteReader();
 
@@ -232,5 +233,27 @@ public class TournementDal : IToernementDal
         connection.Close();
 
         return ids;
+    }
+
+    public void CreateBracket(string type)
+    {
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+        var command = new SqlCommand(
+            "if not exist (select ID from Bracket where TournementID = " + ID + ") " +
+            "begin insert into Bracket (TournementID, Type) " +
+            "output (INSERTED.ID)" +
+            "values (" + ID + ",'" + type + "')",
+            connection);
+        command.ExecuteReader();
+        connection.Close();
+    }
+
+    public bool DoesPlayerExist(string name)
+    {
+        int id = _playerData.GetPlayerID(name);
+        if (id == -1)
+            return false;
+        return true;
     }
 }

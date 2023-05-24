@@ -16,4 +16,5 @@ public interface IToernementDal
     List<string> GetInvitedPlayers();
     List<int> GetPlayerRatings(List<string> names);
     bool IsTournementOpen();
+    bool DoesPlayerExist(string name);
 }

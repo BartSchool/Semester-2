@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-26T09:32:56.882Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.58" etag="Dt0R9Qw7OlDv5ZB1RZaC" version="21.2.2" type="device">
+<mxfile host="app.diagrams.net" modified="2023-04-26T13:17:05.011Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 Edg/112.0.1722.58" etag="WF-VLZNjNvgLq5E-Z03K" version="21.2.2" type="device">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2790" dy="1390" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
+    <mxGraphModel dx="2232" dy="1112" grid="0" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4681" pageHeight="3300" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -18,7 +18,7 @@
         <mxCell id="Ue17VunKUcNrUkERaFJt-3" value="+ Edit (Name : string, MaxPlayers: int) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
           <mxGeometry y="60" width="299" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="v1GVHp0fWZeuIG2ooU9L-30" value="+ AddPlayer(player : Player) : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
+        <mxCell id="v1GVHp0fWZeuIG2ooU9L-30" value="+ AddPlayer(player : Player) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
           <mxGeometry y="86" width="299" height="26" as="geometry" />
         </mxCell>
         <mxCell id="v1GVHp0fWZeuIG2ooU9L-31" value="+ RemovePlayer(player : Player) : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
@@ -27,10 +27,10 @@
         <mxCell id="v1GVHp0fWZeuIG2ooU9L-32" value="+ GetPlayers() : Player []" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
           <mxGeometry y="138" width="299" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="v1GVHp0fWZeuIG2ooU9L-33" value="+ InvitePlayer(player : Player) : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
+        <mxCell id="v1GVHp0fWZeuIG2ooU9L-33" value="+ InvitePlayer(player : Player) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
           <mxGeometry y="164" width="299" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="v1GVHp0fWZeuIG2ooU9L-34" value="+ UnInvitePlayer(player : Player) : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
+        <mxCell id="v1GVHp0fWZeuIG2ooU9L-34" value="+ UnInvitePlayer(player : Player) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">
           <mxGeometry y="190" width="299" height="26" as="geometry" />
         </mxCell>
         <mxCell id="v1GVHp0fWZeuIG2ooU9L-35" value="+ GetInvitedPlayers() : Player []" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="Ue17VunKUcNrUkERaFJt-0" vertex="1">

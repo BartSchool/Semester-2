@@ -8,10 +8,26 @@
         <form method="get" asp-action="AddPlayer">
             <input type="submit" value="Add new player"/>
         </form>
+        @Html.ValidationMessage("remove","", new { @class = "text-danger"})
         @foreach (Player player in Model.players){
             <div class="player">
                 <div>@player.Name @player.Ranking</div>
+                <form method="post" asp-action="Index">
+                    <div hidden>
+                        <input asp-for="name" type="text" value="@player.Name"/>
+                    </div>
+                    <input type="submit" value="remove" />
+                </form>
+                <form method="get" asp-action="EditPlayer">
+                    <div hidden>
+                        <input asp-for="name" type="text" value="@player.Name"/>
+                    </div>
+                    <input type="submit" value="Edit"/>
+                </form>
             </div>
         }
     </div>
 </div>
+
+<script src="~/js/background.js" asp-append-version="true"></script>
+<script>createBox();</script>

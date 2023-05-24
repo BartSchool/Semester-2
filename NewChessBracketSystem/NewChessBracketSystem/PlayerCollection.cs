@@ -61,6 +61,12 @@ public class PlayerCollection
 		return new(List);
     }
 
+	public void EditPlayer(string name, string newName, int newRating)
+	{
+		_playerDB.EditPlayerRating(name, newRating);
+		_playerDB.EditPlayerName(name, newName);
+	}
+
 	private IReadOnlyList<Player> SetPlayers()
 	{
 		List<Player> result = new List<Player>();
@@ -69,8 +75,10 @@ public class PlayerCollection
 		{
 			int? rating = _playerDB.GetPlayerRating(name);
 
-            if (rating != null)
+			if (rating == null)
 				result.Add(new Player(name));
+			else
+				result.Add(new Player(name, (int)rating));
 		}
 		return result;
 	}
@@ -83,10 +91,17 @@ public class PlayerCollection
 		return false;
 	}
 
+	private bool IsPlayerActive(string name)
+	{
+		return _playerDB.IsPlayerActive(name);
+	}
+
 	private bool CanRemovePlayer(string name)
 	{
 		if (!DoesPlayerExist(name))
 			throw new Exception("player does not exist");
+		if (IsPlayerActive(name))
+			throw new Exception("player is active in tournement");
 		return true;
 	}
 

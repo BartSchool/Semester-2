@@ -7,7 +7,7 @@ public interface IAllTournementDal
     int GetTournementID(string name);
     bool IsTournementOpen(string name);
     DateTime GetTournementStartTime(string name);
-    void AddTournement(string name, DateTime startTime, bool IsOpen, int maxPlayers);
+    void AddTournement(string name, DateTime startTime, bool IsOpen, int maxPlayers, string tournementType);
     void RemoveTournement(string name);
     bool DoesTournementExist(string name);
 }

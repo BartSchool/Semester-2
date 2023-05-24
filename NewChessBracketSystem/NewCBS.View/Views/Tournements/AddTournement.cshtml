@@ -1,0 +1,41 @@
+﻿@model AddTournementModel
+
+<link rel="stylesheet" href="~/css/Tournements.css" asp-append-version="true" />    
+<link rel="stylesheet" href="~/css/Add.css" asp-append-version="true" />
+
+<form method="post" asp-action="AddTournement">
+    @Html.ValidationMessage("add","", new { @class = "text-danger"})
+    <div class="inputContainer">
+        <label for="Name">Tournament Name:</label>
+        <input asp-for="Name" type="text" placeholder="Enter tournament name" />
+    </div>
+    <div class="inputContainer">
+        <label for="StartTime">Start Date:</label>
+        <input asp-for="StartTime" type="date" placeholder="Start Date"/>
+    </div>
+    <div class="inputContainer">
+        <label class="checkmark-label">
+            <label asp-for="isOpen">Open/Closed tournement: </label>
+            <input asp-for="isOpen" type="checkbox" class="checkmark-input" onchange="updateText(this)">
+            <span class="checkmark-text">Closed</span>
+        </label>
+    </div>
+    <div class="inputContainer">
+        <label for="MaxPlayers">Max Players:</label>
+        <input asp-for="MaxPlayers" type="number" min="2" value="2"/>
+    </div>
+    <div class="inputContainer">
+        <label for="bracketType">Bracket Type:</label>
+        <select asp-for="bracketType" type="text" class="select">
+            <option value="roundRobin">Round Robin</option>
+            <option value="elimination">Elimination</option>
+        </select>
+    </div>
+    <div class ="inputContainer">
+        <input type="submit" value="Create tournement" class="submit-button" />
+    </div>
+</form>
+
+<script src="~/js/Add.js" asp-append-version="true"></script>
+<script src="~/js/background.js" asp-append-version="true"></script>
+<script>createSquares();</script>

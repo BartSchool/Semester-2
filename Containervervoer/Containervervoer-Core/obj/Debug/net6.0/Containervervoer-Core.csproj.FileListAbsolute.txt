@@ -1,0 +1,12 @@
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\bin\Debug\net6.0\Containervervoer-Core.deps.json
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\bin\Debug\net6.0\Containervervoer-Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\bin\Debug\net6.0\Containervervoer-Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.csproj.AssemblyReference.cache
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.AssemblyInfoInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.AssemblyInfo.cs
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.csproj.CoreCompileInputs.cache
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\refint\Containervervoer-Core.dll
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\Containervervoer-Core.pdb
+C:\Users\31618\Documents\GitHub\Semester-2\Containervervoer\Containervervoer-Core\obj\Debug\net6.0\ref\Containervervoer-Core.dll

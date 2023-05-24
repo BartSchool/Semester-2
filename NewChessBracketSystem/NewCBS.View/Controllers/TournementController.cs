@@ -11,7 +11,7 @@ namespace NewCBS.View.Controllers
         {
             TournementModel model = new TournementModel();
             model.Id = oldModel.ID;
-            model.tournement = new Tournement(new TournementDal(model.Id));
+            model.tournement = new Tournement(new TournementDal(model.Id), new BracketDal(model.Id));
             return View(model);
         }
 
@@ -27,10 +27,19 @@ namespace NewCBS.View.Controllers
         [HttpPost]
         public IActionResult AddPlayer(AddPlayerModel oldModel)
         {
-            Tournement tournement = new(new TournementDal(oldModel.ID));
-            tournement.AddPlayer(oldModel.name);
+            Tournement tournement = new(new TournementDal(oldModel.ID), new BracketDal(oldModel.ID));
             TournementsModel model = new();
-            model.ID = oldModel.ID;
+            try
+            {
+                model.ID = oldModel.ID;
+                tournement.AddPlayer(oldModel.name);
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("add", "Cant add player, " + e.Message);
+                oldModel.players = new PlayerCollection(new AllPlayerData()).GetPlayerNames();
+                return View(oldModel);
+            }
             return RedirectToAction("index", model);
         }
 
@@ -46,10 +55,44 @@ namespace NewCBS.View.Controllers
         [HttpPost]
         public IActionResult InvitePlayer(AddPlayerModel oldModel)
         {
-            Tournement tournement = new(new TournementDal(oldModel.ID));
-            tournement.InvitePlayer(oldModel.name);
+            Tournement tournement = new(new TournementDal(oldModel.ID), new BracketDal(oldModel.ID));
             TournementsModel model = new();
-            model.ID = oldModel.ID;
+            try
+            {
+                tournement.InvitePlayer(oldModel.name);
+                model.ID = oldModel.ID;
+            } 
+            catch (Exception e)
+            {
+                ModelState.AddModelError("invite", "Cant invite player, " + e.Message);
+                oldModel.players = new PlayerCollection(new AllPlayerData()).GetPlayerNames();
+                return View(oldModel);
+            }
+            return RedirectToAction("index", model);
+        }
+
+        [HttpPost]
+        public IActionResult RemovePlayer(TournementModel model)
+        {
+            model.tournement = new Tournement(new TournementDal(model.Id), new BracketDal(model.Id));
+            model.tournement.RemovePlayer(model.removeName);
+            return RedirectToAction("index", model);
+        }
+
+        [HttpPost]
+        public IActionResult UnInvitePlayer(TournementModel model)
+        {
+            model.tournement = new Tournement(new TournementDal(model.Id), new BracketDal(model.Id));
+            model.tournement.UnInvitePlayer(model.removeName);
+            return RedirectToAction("index", model);
+        }
+
+        [HttpPost]
+        public IActionResult MakeMatches(TournementModel model)
+        {
+            model.tournement = new Tournement(new TournementDal(model.Id), new BracketDal(model.Id));
+            model.tournement.Bracket.CreateMatches(new (model.tournement.Players));
+
             return RedirectToAction("index", model);
         }
     }

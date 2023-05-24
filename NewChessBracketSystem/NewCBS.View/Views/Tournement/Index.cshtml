@@ -2,43 +2,61 @@
 @using NewCBS.Core
 
 <link rel="stylesheet" href="~/css/Tournements.css" asp-append-version="true" />
+<script src="~/js/site.js"></script>
 
 <div class="backgroundContainer">
     <div class="TournementContainer">
         <div class="TournementInfo">
             @Model.tournement.Name
         </div>
-
+        <a asp-controller="Tournements" asp-action="AddTournement">Add tournement</a>
         <div class="playerSection">
-            <div class="PlayerContainer">
-                <div class="text">
-                    <div>
-                        Players
-                    </div>
-                    <form method="get" asp-action="AddPlayer">
-                        <div hidden>
-                            <input asp-for="Id" value="@Model.Id" />
+            @if (!Model.tournement.IsStarted()) {
+                <div class="PlayerContainer">
+                    <div class="text">
+                        <div>
+                            Players
                         </div>
-                        <input type="submit" value="Add" />
-                    </form>
-                </div>    
-                <div class="Players">
-                    <div class="playerTable">
-                        <div class="TableRow">
-                            <div class="TableColumn">name</div>
-                            <div class="TableColumn">rating</div>
-                        </div>
-                        @foreach (Player player in Model.tournement.Players)
-                        {
-                            <div class="TableRow">
-                                <div class="TableColumn">@player.Name</div>
-                                <div class="TableColumn">@player.Ranking</div>
+                        <form method="get" asp-action="AddPlayer">
+                            <div hidden>
+                                <input asp-for="Id" value="@Model.Id" />
                             </div>
-                        }
+                            <input type="submit" value="Add" />
+                        </form>
+                    </div>    
+                    <div class="Players">
+                        <div class="playerTable">
+                            <div class="TableRow">
+                                <div class="TableColumn">name</div>
+                                <div class="TableColumn">rating</div>
+                                @if (!Model.tournement.IsStarted()){
+                                    <div class="TableColumn">remove</div>
+                                }
+                            </div>
+                            @foreach (Player player in Model.tournement.Players)
+                            {
+                                <div class="TableRow">
+                                    <div class="TableColumn">@player.Name</div>
+                                    <div class="TableColumn">@player.Ranking</div>
+                                    @if (!Model.tournement.IsStarted())
+                                    {
+                                        <div class="TableColumn">
+                                            <form method="post" asp-controller="Tournement" asp-action="RemovePlayer">
+                                                <div hidden>
+                                                    <input asp-for="Id" type="number" value="@Model.Id"/>
+                                                    <input asp-for="removeName" type="text" value="@player.Name"/>
+                                                </div>
+                                                <input type="submit" value="-"/>
+                                            </form>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
-            @if (!Model.tournement.isOpen) {
+            }
+            @if (!Model.tournement.isOpen && !Model.tournement.IsStarted()) {
                 <div class ="PlayerContainer">
                     <div class="text">
                         <div>
@@ -56,18 +74,69 @@
                             <div class="TableRow">
                                 <div class="TableColumn">name</div>
                                 <div class="TableColumn">rating</div>
-                                <div class="TableColumn"></div>
+                                <div class="TableColumn">uninvite</div>
                             </div>
                             @foreach (Player player in Model.tournement.InvitedPlayers)
                             {
                                 <div class="TableRow">
                                     <div class="TableColumn">@player.Name</div>
                                     <div class="TableColumn">@player.Ranking</div>
+                                    <div class="TableColumn">
+                                        <form method="post" asp-controller="Tournement" asp-action="UnInvitePlayer">
+                                            <div hidden>
+                                                <input asp-for="Id" type="number" value="@Model.Id" />
+                                                <input asp-for="removeName" type="text" value="@player.Name" />
+                                            </div>
+                                            <input type="submit" value="-" />
+                                        </form>
+                                    </div>
                                 </div>
                             }
                         </div>
                     </div>
                 </div>
+            }
+            @if (Model.tournement.IsStarted()){
+                @if (Model.tournement.Bracket.Matches.Count == 0){
+                    <form asp-action="MakeMatches">
+                        <div hidden>
+                            <input asp-for="Id" value="@Model.Id"/>
+                        </div>
+                        <input type="submit" value="Generate Matches"/>
+                    </form>
+                } else {
+                    <div class="playerTable">
+                        <div class="TableRow">
+                            <div class="TableColumn">player 1</div>
+                            <div class="TableColumn">player 2</div>
+                            <div class="TableColumn">result</div>
+                        </div>
+                        @{
+                            int i = 0;
+                            foreach (Match match in Model.tournement.Bracket.Matches)
+                            {
+                                <div class="TableRow">
+                                    <div class="TableColumn">@match.Player1.Name - @match.Player1.Ranking</div>
+                                    <div class="TableColumn">@match.Player2.Name - @match.Player2.Ranking</div>
+                                    <div class="TableColumn">
+                                        <form>
+                                            <select id="score-@i">
+                                                <option value="WinP1">Player 1 won</option>
+                                                <option value="WinP2">Player 2 won</option>
+                                                <option value="Draw">Drawn</option>
+                                                <option value="NotPlayed">Not played yet</option>
+                                            </select>
+                                            <script>
+                                                SetOption('@match.Result', @i)
+                                            </script>
+                                        </form>
+                                    </div>
+                                </div>
+                                i++;
+                            }
+                        }
+                    </div>
+                }
             }
         </div>
     </div>

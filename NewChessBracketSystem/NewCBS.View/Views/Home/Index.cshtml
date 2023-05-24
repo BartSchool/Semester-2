@@ -1,8 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<link rel="stylesheet" href="~/css/HomePage.css" asp-append-version="true" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="background">
+    <div class="mainTextContainer">
+        <h2>Host your next competitive chess</h2>
+        <h2>tournament with ease and connect with</h2>
+        <h2>a community of passionate players!</h2>
+        <a asp-controller="Player" asp-action="AddPlayer">Join now</a>
+    </div>
 </div>
+
+<script src="~/js/background.js" asp-append-version="true"></script>
+<script>createSquares();</script>

@@ -1,0 +1,20 @@
+﻿.mainTextContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 70%;
+    justify-content: center;
+    align-content: center;
+}
+
+    .mainTextContainer h2, a {
+        text-align: center;
+        color: white;
+        font-family: 'Kanit', sans-serif;
+        font-size: 1.8em;
+    }
+
+    .mainTextContainer a {
+        padding: 5px;
+        text-decoration: none;
+    }

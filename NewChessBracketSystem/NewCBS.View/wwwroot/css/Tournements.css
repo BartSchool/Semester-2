@@ -1,20 +1,56 @@
 ﻿.Tournement {
     margin: 10px;
     flex-direction: row;
-    background-color: oldlace;
-    border: solid;
-    border-width: 1px;
-    border-radius: 100px;
     justify-content: space-between;
     cursor: pointer;
+}
+
+.a-button {
+    color: white;
+    font-size: 1.3em;
+}
+
+.tournementOptions {
+    display: flex;
+    background-color: #333;
+    margin-bottom: 20px;
+}
+
+.Tournement:hover {
+    background-color: #181818;
 }
 
 .text {
     justify-content: center;
 }
 
+.contentContainer {
+    flex-direction: column;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+}
+
+a {
+    padding: 5px;
+    text-decoration: none;
+}
+
+.navigation a{
+    color: white;
+}
+
+.navigation a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+}
+    a:hover {
+        color: #B48C65;
+    }
+
+
 .text input {
-    flex-grow: 0;
     background: none;
     border: none;
     color: blue;
@@ -23,6 +59,20 @@
 .TournementContainer {
     flex-direction:column;
     justify-content: space-evenly;
+}
+
+.backgroundContainer {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    height: 70%;
+    width: 87%;
+}
+
+.TableColumn {
+    width: 33%;
 }
 
 .TournementInfo {
@@ -44,4 +94,32 @@
 .player {
     display: flex;
     justify-content: center;
+}
+
+.removeButton {
+    width: 10px;
+}
+
+.tournementDate, .tournementPlayers {
+    width: 25%;
+    justify-content: center;
+}
+
+.tournementName {
+    width: 50%;
+    justify-content: center;
+}
+
+.Tournements {
+    display: flex;
+    background-color: #333;
+    flex-direction: column;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.t {
+    margin: 10px;
+    padding: 5px;
+    font-weight: bold;
 }

@@ -31,7 +31,7 @@ public class AllPlayerData : IPlayerDal
         connection.Open();
 
         var command = new SqlCommand(
-            "delete from Player where name = '" + name + "'",
+            "delete from Player where Username = '" + name + "'",
             connection);
         var reader = command.ExecuteReader();
         connection.Close();
@@ -60,6 +60,7 @@ public class AllPlayerData : IPlayerDal
 
     public int GetPlayerRating(string name)
     {
+        int result = -1;
         using var connection = new SqlConnection(connectionString);
         connection.Open();
 
@@ -67,10 +68,9 @@ public class AllPlayerData : IPlayerDal
             "select Rating from Player where UserName = '" + name + "'",
             connection);
         var reader = command.ExecuteReader();
-        if (reader == null)
-            throw new Exception("incorrect sql code");
-        reader.Read();
-        int result = reader.GetInt32(0);
+        if (reader != null)
+            if (reader.Read())
+                result = reader.GetInt32(0);
 
         connection.Close();
 
@@ -79,6 +79,7 @@ public class AllPlayerData : IPlayerDal
 
     internal int GetPlayerID(string name)
     {
+        int result = -1;
         using var connection = new SqlConnection(connectionString);
         connection.Open();
 
@@ -86,11 +87,10 @@ public class AllPlayerData : IPlayerDal
             "select ID from Player where UserName = '" + name + "'",
             connection);
         var reader = command.ExecuteReader();
-        if (reader == null)
-            throw new Exception("incorrect sql code");
+        if (reader != null)
+            if (reader.Read())
+                result = reader.GetInt32(0);
 
-        reader.Read();
-        int result = reader.GetInt32(0);
 
         connection.Close();
 
@@ -115,5 +115,67 @@ public class AllPlayerData : IPlayerDal
         connection.Close();
 
         return result;
+    }
+
+    public bool IsPlayerActive(string name)
+    {
+        int id = GetPlayerID(name);
+
+        bool result = false;
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+
+        var command = new SqlCommand(
+            "select TournementID from Players where PlayerId = " + id,
+            connection);
+        var reader = command.ExecuteReader();
+        if (reader != null)
+            if (reader.Read())
+                result = true;
+
+        connection.Close();
+
+        if (!result)
+        {
+            connection.Open();
+
+            command = new SqlCommand(
+                "select TournementID from InvitedPlayers where PlayerId = " + id,
+                connection);
+            reader = command.ExecuteReader();
+            if (reader != null)
+                if (reader.Read())
+                    result = true;
+
+            connection.Close();
+        }
+
+        return result;
+    }
+
+    public void EditPlayerName(string name, string newName)
+    {
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+        var command = new SqlCommand(
+            "update Player " +
+            "set Username = '" + newName + "' " +
+            "where Username = '" + name + "' ",
+            connection);
+        command.ExecuteReader();
+        connection.Close();
+    }
+
+    public void EditPlayerRating(string name, int newRating)
+    {
+        using var connection = new SqlConnection(connectionString);
+        connection.Open();
+        var command = new SqlCommand(
+            "update Player " +
+            "set Rating = " + newRating +
+            " where Username = '" + name + "' ",
+            connection);
+        command.ExecuteReader();
+        connection.Close();
     }
 }

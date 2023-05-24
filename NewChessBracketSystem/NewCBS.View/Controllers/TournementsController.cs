@@ -26,5 +26,18 @@ namespace NewCBS.View.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult AddTournement()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTournement(AddTournementModel model)
+        {
+            _tournements.AddTournement(model.Name, model.StartTime, model.isOpen, model.MaxPlayers, model.bracketType);
+            return RedirectToAction("Index");
+        }
     }
 }

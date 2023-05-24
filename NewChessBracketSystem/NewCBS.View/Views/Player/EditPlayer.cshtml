@@ -1,0 +1,16 @@
+﻿@model EditPlayerModel
+@using NewCBS.Core
+@using NewCBS.Dal
+
+
+<div>
+    @Html.ValidationMessage("add","", new { @class = "text-danger"})
+    <form method="post" asp-controller="Player" asp-action="EditPlayer">
+        <div hidden>
+            <input asp-for="name" type="text" value="@Model.name"/>
+        </div>
+        <input asp-for="newName" type="text" value="@Model.name"/>
+        <input asp-for="newrating" type="number" value="@Model.rating"/>
+        <input type="submit" value="add player" />
+    </form>
+</div>

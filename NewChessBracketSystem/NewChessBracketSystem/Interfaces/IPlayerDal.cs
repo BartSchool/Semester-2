@@ -6,4 +6,7 @@ public interface IPlayerDal
     void RemovePlayer(string name);
     int GetPlayerRating(string name);
     List<string> GetPlayerNames();
+    bool IsPlayerActive(string name);
+    void EditPlayerName(string name, string newName);
+    void EditPlayerRating(string name, int newRating);
 }

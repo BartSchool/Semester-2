@@ -19,12 +19,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Player/AddPlayer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXEFkZFBsYXllci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Player/EditPlayer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWVyXEVkaXRQbGF5ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Player/Index.cshtml]
@@ -37,6 +37,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Tournements/AddTournement.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cm5lbWVudHNcQWRkVG91cm5lbWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/31618/Documents/GitHub/Semester-2/NewChessBracketSystem/NewCBS.View/Views/Tournements/Index.cshtml]

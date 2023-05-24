@@ -2,11 +2,23 @@
 @using NewCBS.Core
 @using NewCBS.Dal
 
+<link rel="stylesheet" href="~/css/Tournements.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Add.css" asp-append-version="true" />
 
-<div>
-    <form method="post" asp-controller="Player" asp-action="AddPlayer">
-        <input asp-for="name" type="text"/>
-        <input asp-for="rating" type="number" />
-        <input type="submit" value="add player"/>
-    </form>
-</div>
+<form method="post" asp-controller="Player" asp-action="AddPlayer">
+    @Html.ValidationMessage("add","", new { @class = "text-danger"})
+    <div class="inputContainer">
+        <label for="Name">Tournament Name:</label>
+        <input asp-for="name" type="text" placeholder="Enter player name" />
+    </div>
+    <div class="inputContainer">
+        <label for="MaxPlayers">rating:</label>
+        <input asp-for="rating" type="number" min="0" value="0" />
+    </div>
+    <div class="inputContainer">
+        <input type="submit" value="Add player" class="submit-button" />
+    </div>
+</form>
+
+<script src="~/js/background.js" asp-append-version="true"></script>
+<script>createSquares();</script>
